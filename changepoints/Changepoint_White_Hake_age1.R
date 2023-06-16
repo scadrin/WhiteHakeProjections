@@ -49,21 +49,16 @@ legend("topright", legend = "AMOC Mean(s)", col = "blue", lwd = 2)
 cpts(spring.amoc)
 
 #detection of two change-points
-fall.binseg <- cpt.mean(fall.num, method = "BinSeg", Q = 2)
-plot(fall.binseg, type = "l", cpt.col = "purple", xlab = "Year", ylab = "Spring Index (Ln age-1)", cpt.width = 4)
-legend("topright", legend = "BinSeg Mean(s)", col = "purple", lwd = 2)
-cpts(fall.binseg)
-
-#detection of multiple change-points
-fall.pelt <- cpt.mean(fall.num, method = "PELT")
-plot(fall.pelt, type = "l", cpt.col = "red", xlab = "Year", ylab = "Spring Index (Ln age-1)", cpt.width = 4)
-legend("topright", legend = "PELT Mean(s)", col = "red", lwd = 2)
-cpts(fall.pelt)
-
-spring.binseg <- cpt.mean(spring.num, method = "BinSeg")
+spring.binseg <- cpt.mean(spring.num, method = "BinSeg", Q = 2)
 plot(spring.binseg, type = "l", cpt.col = "purple", xlab = "Year", ylab = "Spring Index (Ln age-1)", cpt.width = 4)
 legend("topright", legend = "BinSeg Mean(s)", col = "purple", lwd = 2)
 cpts(spring.binseg)
+
+#detection of multiple change-points
+spring.pelt <- cpt.mean(spring.num, method = "PELT")
+plot(spring.pelt, type = "l", cpt.col = "red", xlab = "Year", ylab = "Spring Index (Ln age-1)", cpt.width = 4)
+legend("topright", legend = "PELT Mean(s)", col = "red", lwd = 2)
+cpts(spring.pelt)
 
 #number of change-points, means, likelihood, , by method
 m.pm <- cpt.mean(spring.num, penalty = "Manual", pen.value = "1.5 * log(n)", method = "PELT")
@@ -90,21 +85,16 @@ legend("topright", legend = "AMOC Mean(s)", col = "blue", lwd = 2)
 cpts(shrimp.amoc)
 
 #detection of two change-points
-fall.binseg <- cpt.mean(fall.num, method = "BinSeg", Q = 2)
-plot(fall.binseg, type = "l", cpt.col = "purple", xlab = "Year", ylab = "Shrimp Index (Ln age-1)", cpt.width = 4)
-legend("topright", legend = "BinSeg Mean(s)", col = "purple", lwd = 2)
-cpts(fall.binseg)
-
-#detection of multiple change-points
-fall.pelt <- cpt.mean(fall.num, method = "PELT")
-plot(fall.pelt, type = "l", cpt.col = "red", xlab = "Year", ylab = "Shrimp Index (Ln age-1)", cpt.width = 4)
-legend("topright", legend = "PELT Mean(s)", col = "red", lwd = 2)
-cpts(fall.pelt)
-
-shrimp.binseg <- cpt.mean(shrimp.num, method = "BinSeg")
+shrimp.binseg <- cpt.mean(shrimp.num, method = "BinSeg", Q = 2)
 plot(shrimp.binseg, type = "l", cpt.col = "purple", xlab = "Year", ylab = "Shrimp Index (Ln age-1)", cpt.width = 4)
 legend("topright", legend = "BinSeg Mean(s)", col = "purple", lwd = 2)
 cpts(shrimp.binseg)
+
+#detection of multiple change-points
+shrimp.pelt <- cpt.mean(shrimp.num, method = "PELT")
+plot(shrimp.pelt, type = "l", cpt.col = "red", xlab = "Year", ylab = "Shrimp Index (Ln age-1)", cpt.width = 4)
+legend("topright", legend = "PELT Mean(s)", col = "red", lwd = 2)
+cpts(shrimp.pelt)
 
 #number of change-points, means, likelihood, , by method
 m.pm <- cpt.mean(shrimp.num, penalty = "Manual", pen.value = "1.5 * log(n)", method = "PELT")
