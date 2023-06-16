@@ -12,16 +12,17 @@ plot(fall.amoc, type = "l", cpt.col = "blue", xlab = "Year", ylab = "Fall Index 
 legend("topright", legend = "AMOC Mean(s)", col = "blue", lwd = 2)
 cpts(fall.amoc)
 
-#Two methods for detection of multiple change-points
+#detection of two change-points
+fall.binseg <- cpt.mean(fall.num, method = "BinSeg", Q = 2)
+plot(fall.binseg, type = "l", cpt.col = "purple", xlab = "Year", ylab = "Fall Index (Ln age-1)", cpt.width = 4)
+legend("topright", legend = "BinSeg Mean(s)", col = "purple", lwd = 2)
+cpts(fall.binseg)
+
+#detection of multiple change-points
 fall.pelt <- cpt.mean(fall.num, method = "PELT")
 plot(fall.pelt, type = "l", cpt.col = "red", xlab = "Year", ylab = "Fall Index (Ln age-1)", cpt.width = 4)
 legend("topright", legend = "PELT Mean(s)", col = "red", lwd = 2)
 cpts(fall.pelt)
-
-fall.binseg <- cpt.mean(fall.num, method = "BinSeg")
-plot(fall.binseg, type = "l", cpt.col = "purple", xlab = "Year", ylab = "Fall Index (Ln age-1)", cpt.width = 4)
-legend("topright", legend = "BinSeg Mean(s)", col = "purple", lwd = 2)
-cpts(fall.binseg)
 
 #number of change-points, means, likelihood, , by method
 m.pm <- cpt.mean(fall.num, penalty = "Manual", pen.value = "1.5 * log(n)", method = "PELT")
