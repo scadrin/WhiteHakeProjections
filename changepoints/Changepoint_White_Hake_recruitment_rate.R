@@ -12,7 +12,13 @@ plot(fall.amoc, type = "l", cpt.col = "blue", xlab = "Year", ylab = "Fall Index 
 legend("topright", legend = "AMOC Mean(s)", col = "blue", lwd = 2)
 cpts(fall.amoc)
 
-#Two methods for detection of multiple change-points
+#detection of two change-points
+fall.binseg <- cpt.mean(fall.num, method = "BinSeg", Q = 2)
+plot(fall.binseg, type = "l", cpt.col = "purple", xlab = "Year", ylab = "Fall Index (Ln r/ssb)", cpt.width = 4)
+legend("topright", legend = "BinSeg Mean(s)", col = "purple", lwd = 2)
+cpts(fall.binseg)
+
+#detection of multiple change-points
 fall.pelt <- cpt.mean(fall.num, method = "PELT")
 plot(fall.pelt, type = "l", cpt.col = "red", xlab = "Year", ylab = "Fall Index (Ln r/ssb)", cpt.width = 4)
 legend("topright", legend = "PELT Mean(s)", col = "red", lwd = 2)
@@ -47,16 +53,17 @@ plot(spring.amoc, type = "l", cpt.col = "blue", xlab = "Year", ylab = "Spring In
 legend("topright", legend = "AMOC Mean(s)", col = "blue", lwd = 2)
 cpts(spring.amoc)
 
-#Two methods for detection of multiple change-points
+#detection of two change-points
+fall.binseg <- cpt.mean(fall.num, method = "BinSeg", Q = 2)
+plot(fall.binseg, type = "l", cpt.col = "purple", xlab = "Year", ylab = "Spring Index (Ln r/ssb)", cpt.width = 4)
+legend("topright", legend = "BinSeg Mean(s)", col = "purple", lwd = 2)
+cpts(fall.binseg)
+
+#detection of multiple change-points
 spring.pelt <- cpt.mean(spring.num, method = "PELT")
 plot(spring.pelt, type = "l", cpt.col = "red", xlab = "Year", ylab = "Spring Index (Ln r/ssb)", cpt.width = 4)
 legend("topright", legend = "PELT Mean(s)", col = "red", lwd = 2)
 cpts(spring.pelt)
-
-spring.binseg <- cpt.mean(spring.num, method = "BinSeg")
-plot(spring.binseg, type = "l", cpt.col = "purple", xlab = "Year", ylab = "Spring Index (Ln r/ssb)", cpt.width = 4)
-legend("topright", legend = "BinSeg Mean(s)", col = "purple", lwd = 2)
-cpts(spring.binseg)
 
 #number of change-points, means, likelihood, , by method
 m.pm <- cpt.mean(spring.num, penalty = "Manual", pen.value = "1.5 * log(n)", method = "PELT")
@@ -82,16 +89,17 @@ plot(shrimp.amoc, type = "l", cpt.col = "blue", xlab = "Year", ylab = "Shrimp In
 legend("topright", legend = "AMOC Mean(s)", col = "blue", lwd = 2)
 cpts(shrimp.amoc)
 
-#Two methods for detection of multiple change-points
+#detection of two change-points
+shrimp.binseg <- cpt.mean(shrimp.num, method = "BinSeg", Q = 2)
+plot(shrimp.binseg, type = "l", cpt.col = "purple", xlab = "Year", ylab = "Shrimp Index (Ln r/ssb)", cpt.width = 4)
+legend("topright", legend = "BinSeg Mean(s)", col = "purple", lwd = 2)
+cpts(shrimp.binseg)
+
+#detection of multiple change-points
 shrimp.pelt <- cpt.mean(shrimp.num, method = "PELT")
 plot(shrimp.pelt, type = "l", cpt.col = "red", xlab = "Year", ylab = "Shrimp Index (Ln r/ssb)", cpt.width = 4)
 legend("topright", legend = "PELT Mean(s)", col = "red", lwd = 2)
 cpts(shrimp.pelt)
-
-shrimp.binseg <- cpt.mean(shrimp.num, method = "BinSeg")
-plot(shrimp.binseg, type = "l", cpt.col = "purple", xlab = "Year", ylab = "Shrimp Index (Ln r/ssb)", cpt.width = 4)
-legend("topright", legend = "BinSeg Mean(s)", col = "purple", lwd = 2)
-cpts(shrimp.binseg)
 
 #COMBINED SURVEY INDEX
 #read data from csv, convert to numeric and specify year range
